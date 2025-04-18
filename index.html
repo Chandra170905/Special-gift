@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://instaastro.com/blog/wp-content/uploads/2021/12/Why_Lord_Yama_Lost_His_Handsome_Looks__-_InstaAstro.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #575757e7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff9d2d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #fcbe2d;
+        }
+        #display {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ff0000;
+        }
+        #endImage {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Moksh prapti😇</h1>
+        <input type="number" id="inputtime" placeholder="Mrityu smy">
+        <button onclick="startTimer()">Start</button>
+        <p id="display"></p>
+        <img id="endImage" src="fd9fac93-7ad6-410d-acd0-0b032991e15d-removebg-preview.png" alt="Time's Up">
+    </div>
+
+    <script>
+        let timer;
+        function startTimer() {
+            clearInterval(timer);
+            const timeInput = document.getElementById("inputtime").value;
+            let time = parseInt(timeInput);
+            const display = document.getElementById("display");
+            const endImage = document.getElementById("endImage");
+
+            endImage.style.display = "none"; // Hide the image initially
+
+            if (isNaN(time) || time <= 0) {
+                alert("Please enter a valid number of seconds.");
+                return;
+            }
+
+            display.textContent = time + " seconds" + " mai ticket kat jae gi😌🙏🏻"; 
+            timer = setInterval(function () {
+                time--;
+                display.textContent = time + " seconds" + " mai ticket kat jae gi😌🙏🏻";
+                if (time <= 0) {
+                    clearInterval(timer);
+                    display.textContent = "Ram name satya hai😌🙏🏻"; // Update the display text when time is up
+                    endImage.style.display = "block"; // Show the image when time is up
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
